@@ -1,4 +1,4 @@
-import GiphyApi from '../services/giphy_api'
+import GiphyApi from '../services/GiphyApi'
 import Axios from 'axios'
 
 export default class AllGifs {
@@ -11,7 +11,8 @@ export default class AllGifs {
     console.log(queryUrl)
     return Axios.get(queryUrl)
     .then(({data}) => {
-      console.log(data)
+      console.log(data.data)
+      return data.data
     });
   }
 
