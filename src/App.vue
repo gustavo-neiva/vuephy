@@ -1,5 +1,5 @@
 
-<style lang="scss">
+<style>
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -7,46 +7,30 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   height: 100vh;
-}
-
-.wrapper {
   background: lightgrey;
-  display: grid;
-  grid-template-columns: 50% 50%;
 }
 
-.first-column {
-  display: grid;
-  grid-template-rows: 10% 90%;
-}
-
-#search-bar {
-  border: 1px solid #000;
-}
-
-#gif {
-  border: 1px solid #000;
-}
-
-#gif-list {
-  border: 1px solid #000;
-  height: 100%;
+@media only screen and (min-width : 1224px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 </style>
 
 <template>
   <div class="wrapper" id="app">
-    <div class="first-column">
-      <div id="search-bar">
-        <SearchBar/>
+    <div>
+      <div>
+        <SearchBar v-model="searchParams"/>
       </div>
-      <div id="gif">
+      <div>
         <Gif/>
       </div>
     </div>
-    <div class="second-column">
-      <div id="gif-list">
+    <div>
+      <div>
         <GifList/>
       </div>
     </div>
@@ -57,13 +41,26 @@
 import Gif from './app/components/Gif.vue';
 import GifList from './app/components/GifList.vue';
 import SearchBar from './app/components/SearchBar.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'app',
   components: { Gif, GifList, SearchBar },
   data () {
     return {
+      searchParams: {},
     }
+  },
+  computed: {
+  },
+  watch:{
+    searchParams: (value) => {
+      console.log(this.a.methods)
+      this.a.methods.getGifs(value.query);
+    }
+  },
+  methods: {
+    ...mapActions('GifStore', ['getGifs']),
   }
 }
 </script>
