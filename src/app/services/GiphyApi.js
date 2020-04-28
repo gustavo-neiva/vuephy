@@ -17,16 +17,16 @@ export default class GiphyApi {
     this.lang      = lang
   }
 
-  _apiUrl() {
-    return `${this.api_url}${this.type}?api_key=${this.api_key}&limit=${this.limit}&offset=${this.offset}&rating=${this.rating}&lang=${this.lang}`
-  }
-
   mediaUrl(mediaId) {
     return `https://media1.giphy.com/media/${mediaId}/200.gif`;
   }
-
+  
   searchQueryUrl(query) {
     return `${this._apiUrl()}&q=${query}`
+  }
+  
+  _apiUrl() {
+    return `${this.api_url}${this.type}?api_key=${this.api_key}&limit=${this.limit}&offset=${this.offset}&rating=${this.rating}&lang=${this.lang}`
   }
 
 }
