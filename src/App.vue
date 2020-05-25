@@ -23,10 +23,10 @@
   <div class="wrapper" id="app">
     <div>
       <div>
-        <SearchBar v-model="searchParams"/>
+        <SearchBar/>
       </div>
       <div>
-        <Gif/>
+        <MainGif/>
       </div>
     </div>
     <div>
@@ -38,29 +38,13 @@
 </template>
 
 <script>
-import Gif from './app/components/Gif.vue';
+import MainGif from './app/components/MainGif.vue';
 import GifList from './app/components/GifList.vue';
 import SearchBar from './app/components/SearchBar.vue';
 import { mapActions } from 'vuex';
 
 export default {
   name: 'app',
-  components: { Gif, GifList, SearchBar },
-  data () {
-    return {
-      searchParams: {},
-    }
-  },
-  computed: {
-  },
-  watch:{
-    searchParams: (value) => {
-      console.log(this.a.methods)
-      this.a.methods.getGifs(value.query);
-    }
-  },
-  methods: {
-    ...mapActions('GifStore', ['getGifs']),
-  }
+  components: { MainGif, GifList, SearchBar }
 }
 </script>
