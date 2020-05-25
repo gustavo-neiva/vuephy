@@ -7,22 +7,40 @@ const gif = new Gif();
 const GifStore = {
   namespaced: true,
   state: {
-    query: '',
-    gifId: null,
-    gifs: [gif,gif,gif,gif,gif,gif,gif,gif,gif,gif,gif,],
+    gifs: [gif, gif],
     selectedGif: gif,
+    loading: false,
   },
   getters: {
   },
-  actions: {
-    getGifs({commits}, query) {
-      allGifs.getBySearchQuery(query).then(data => {
-        console.log(data)
-        commits('BuildGifs')
-      })
+  mutations: {
+    buildGifs(state, gifs) {
+      state.gifs = gifs;
+    },
+    setLoading(state, status) {
+      state.loading = status;
+    },
+    setGif(state, gif) {
+      state.selectedGif = gif;
     }
   },
-  mutations: {
-  }
+  actions: {
+    getGifs({commit}, query) {
+      commit('setLoading', true)
+      return allGifs.getBySearchQuery(query)
+      .then(gifs => {
+        commit('setLoading', false)
+        commit('buildGifs', gifs)
+        return gifs
+      })
+      .catch(error => {
+        commit('setLoading', false)
+        throw error
+      })
+    },
+    selectGif({commit}, gif) {
+      commit('setGif', gif)
+    }
+  },
 }
 export default GifStore
