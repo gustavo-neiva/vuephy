@@ -9,22 +9,22 @@
 }
 
 .gif {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 </style>
 
 <template>
     <div class='container'>
       <div v-for="gif in gifList" :key="gif.id">
-        <img class='gif' :src="gif.gifUrl()" alt="">
+        <img class='gif' :src="gif.gifUrl()" @click="select(gif)">
       </div>
     </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {  mapState, mapActions } from 'vuex'
 
 export default {
     name: "GifList",
@@ -36,8 +36,21 @@ export default {
     computed: {
       ...mapState('GifStore', ['gifs']),
     },
+    methods: {
+      ...mapActions('GifStore', ['selectGif']),
+      select(gif) {
+        console.log('cliquei')
+        console.log(gif)
+        this.selectGif(gif);
+      },
+    },
     mounted(){
-      this.gifList = this.gifs 
-    }
+      this.gifList = this.gifs;
+    },
+    watch: {
+      gifs(newGifs) {
+        this.gifList = newGifs;
+      }
+   }
 }
 </script>
