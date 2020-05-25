@@ -14,29 +14,33 @@
 
 <template>
   <div>
-      <input v-model="query" @input="debounceInput" type="text" class="search-bar" placeholder="Search for Gifs">
+      <input
+        v-model="query"
+        @input="debounceInput"
+        type="text"
+        class="search-bar"
+        placeholder="Search for Gifs"
+      >
   </div>
 </template>
 
 <script>
 import debounce from 'debounce';
+import { mapActions } from 'vuex';
 
 export default {
-    name: "SearchBar",
-    data() {
-      return {
-        query: '',
-      }
-    },
-    methods: {
-      debounceInput: debounce(function () {
-        if (this.query.length >= 3)
-          this.emitData();  
-        }, 400),
-
-      emitData(){
-        this.$emit('input', { query: this.query } );
-      },
+  name: "SearchBar",
+  data() {
+    return {
+      query: '',
     }
+  },
+  methods: {
+    ...mapActions('GifStore', ['getGifs']),
+    debounceInput: debounce(function () {
+      if (this.query.length >= 3)
+        this.getGifs(this.query);
+      }, 700)
+  }
 }
 </script>
