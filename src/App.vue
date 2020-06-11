@@ -1,13 +1,22 @@
 
 <style>
+body {
+  margin:0;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  height: 100vh;
-  background: lightgrey;
+  background: black;
+}
+
+.selected-gif {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+  height: 90%;
 }
 
 @media only screen and (min-width : 1224px) {
@@ -25,8 +34,8 @@
       <div>
         <SearchBar/>
       </div>
-      <div>
-        <MainGif/>
+      <div class="selected-gif">
+        <SelectedGif/>
       </div>
     </div>
     <div>
@@ -38,13 +47,12 @@
 </template>
 
 <script>
-import MainGif from './app/components/MainGif.vue';
+import SelectedGif from './app/components/SelectedGif.vue';
 import GifList from './app/components/GifList.vue';
 import SearchBar from './app/components/SearchBar.vue';
-import { mapActions } from 'vuex';
 
 export default {
   name: 'app',
-  components: { MainGif, GifList, SearchBar }
+  components: { SelectedGif, GifList, SearchBar }
 }
 </script>

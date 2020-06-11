@@ -4,6 +4,7 @@
   width: 100%;
   height: auto;
   max-width: 70vh;
+  max-height: 70vh;
 }
 
 </style>
@@ -14,10 +15,10 @@
 
 <script>
 
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-  name: "MainGif",
+  name: "SelectedGif",
   data() {
     return {
       gif: '',

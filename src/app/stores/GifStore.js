@@ -7,7 +7,7 @@ const gif = new Gif();
 const GifStore = {
   namespaced: true,
   state: {
-    gifs: [gif, gif],
+    gifs: [],
     selectedGif: gif,
     loading: false,
   },
