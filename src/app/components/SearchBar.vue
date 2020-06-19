@@ -4,23 +4,26 @@
   width: 100%;
   display: block;
   font-family: JosefinSans-Bold;
-  font-size: 8.4vh;
-  color: #1b3815;
-  line-height: 1.2vh;
+  font-size: 10vh;
+  color: lightgrey;
+  background: black;
+  line-height: 6vh;
   outline: none;
+  padding: 0 7px;
   border: none;
  }
 </style>
 
 <template>
   <div>
-      <input
-        v-model="query"
-        @input="debounceInput"
-        type="text"
-        class="search-bar"
-        placeholder="Search for Gifs"
-      >
+    <input
+      v-model="query"
+      @input="debounceInput"
+      type="text"
+      class="search-bar"
+      autofocus
+    >
+    <i class="fa fa-search"></i>
   </div>
 </template>
 
