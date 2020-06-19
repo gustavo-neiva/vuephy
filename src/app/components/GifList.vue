@@ -1,26 +1,30 @@
 <style scoped>
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 1rem;
   overflow-y: scroll;
-  grid-auto-rows: min-content;
   height: 100vh;
 }
-
+.gifList {
+  margin: 0.3rem;
+}
 .gif {
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 </style>
 
 <template>
+  <div class="gifList">
     <div class='container'>
-      <div v-for="gif in gifList" :key="gif.id">
-        <img class='gif' :src="gif.gifUrl()" @click="select(gif)">
-      </div>
+      <masonry
+        :cols="{default: 3, 700: 2, 400: 1}"
+        :gutter="{default: '1rem', 700: '0.2rem'}"
+      >
+        <div v-for="gif in gifList" :key="gif.id">
+          <img class='gif' :src="gif.gifUrl()" @click="select(gif)">
+        </div>
+      </masonry>
     </div>
+  </div>
 </template>
 
 <script>
@@ -37,20 +41,32 @@ export default {
       ...mapState('GifStore', ['gifs']),
     },
     methods: {
-      ...mapActions('GifStore', ['selectGif']),
+      ...mapActions('GifStore', ['selectGif', 'searchMore']),
       select(gif) {
-        console.log('cliquei')
-        console.log(gif)
         this.selectGif(gif);
       },
+      scroll () {
+        window.onscroll = () => {
+          let pageYOffset = window.pageYOffset;
+          let docTop = document.documentElement.scrollTop;
+          let bodyTop = document.body.scrollTop;
+          let offsetHeight = document.documentElement.offsetHeight;
+          let innerHeight = window.innerHeight;
+          let bottomOfWindow = Math.max(pageYOffset, docTop, bodyTop) + innerHeight === offsetHeight;
+          if (bottomOfWindow) {
+            this.scrolledToBottom = true
+          }
+        }
+  	  }
     },
     mounted(){
       this.gifList = this.gifs;
+      this.scroll();
     },
     watch: {
       gifs(newGifs) {
         this.gifList = newGifs;
       }
-   }
+   },
 }
 </script>
