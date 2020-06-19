@@ -1,29 +1,51 @@
 <style scoped>
- .search-bar {
+.input-icon i {
+  position: absolute;
+}
+.search-bar {
   height: 100%;
   width: 100%;
   display: block;
   font-family: JosefinSans-Bold;
-  font-size: 10vh;
+  font-size: 3rem;
   color: lightgrey;
   background: black;
+  margin-top: 0.1rem;
   line-height: 6vh;
   outline: none;
   padding: 0 7px;
   border: none;
- }
+}
+.fa-search  {
+  color: #dddddd;
+  left: 0;
+  margin: 0.3rem 0 0 0.2rem;
+  opacity: 0.5
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .15s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
 
 <template>
   <div>
-    <input
-      v-model="query"
-      @input="debounceInput"
-      type="text"
-      class="search-bar"
-      autofocus
-    >
-    <i class="fa fa-search"></i>
+    <div class="input-icon">
+      <transition name="fade">
+        <i v-show="icon" class="fa fa-search fa-3x"></i>
+      </transition>
+      <input
+        v-model="query"
+        @focus="showIcon(false)"
+        @blur="showIcon(true)"
+        @input="debounceInput"
+        type="text"
+        class="search-bar"
+        autofocus
+      >
+    </div>
   </div>
 </template>
 
@@ -36,14 +58,25 @@ export default {
   data() {
     return {
       query: '',
+      icon: true,
     }
   },
   methods: {
     ...mapActions('GifStore', ['getGifs']),
     debounceInput: debounce(function () {
-      if (this.query.length >= 3)
+      if (this.query.length >= 3) {
         this.getGifs(this.query);
-      }, 700)
+      }
+    }, 700),
+    showIcon(boolean) {
+      if (this.query.length > 0) {
+        return this.icon = false;
+      }
+      this.icon = boolean;
+    }
+  },
+  mounted() {
+    this.getGifs('happy');
   }
 }
 </script>
