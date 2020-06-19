@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 
 .gif {
   width: 100%;
