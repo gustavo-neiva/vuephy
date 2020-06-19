@@ -3,7 +3,7 @@ export default class GiphyApi {
     api_key = "btrAmYnPogIdOxAztZfRL2JrUT7Y5Ofs",
     api_url = "https://api.giphy.com/v1/gifs/",
     type = "search",
-    limit = 25,
+    limit = 100,
     offset = 0,
     rating = "G",
     lang = "en"

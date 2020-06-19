@@ -26,15 +26,12 @@ const GifStore = {
   },
   actions: {
     getGifs({commit}, query) {
-      commit('setLoading', true)
       return allGifs.getBySearchQuery(query)
       .then(gifs => {
-        commit('setLoading', false)
         commit('buildGifs', gifs)
         return gifs
       })
       .catch(error => {
-        commit('setLoading', false)
         throw error
       })
     },
