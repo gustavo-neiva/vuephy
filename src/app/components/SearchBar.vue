@@ -6,7 +6,7 @@
   height: 100%;
   width: 100%;
   display: block;
-  font-family: JosefinSans-Bold;
+  font-family: 'Roboto Mono', monospace;
   font-size: 3rem;
   color: lightgrey;
   background: black;
