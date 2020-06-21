@@ -4,7 +4,6 @@ export default class GiphyApi {
     api_url = "https://api.giphy.com/v1/gifs/",
     type = "search",
     limit = 100,
-    offset = 0,
     rating = "G",
     lang = "en"
     ) {
@@ -12,7 +11,6 @@ export default class GiphyApi {
     this.api_key   = api_key
     this.type      = type
     this.limit     = limit
-    this.offset    = offset
     this.rating    = rating
     this.lang      = lang
   }
@@ -21,12 +19,12 @@ export default class GiphyApi {
     return `https://media1.giphy.com/media/${mediaId}/200.gif`;
   }
 
-  searchQueryUrl(query) {
-    return `${this._apiUrl()}&q=${query}`
+  searchQueryUrl({query, offset}) {
+    return `${this._apiUrl(offset)}&q=${query}`
   }
 
-  _apiUrl() {
-    return `${this.api_url}${this.type}?api_key=${this.api_key}&limit=${this.limit}&offset=${this.offset}&rating=${this.rating}&lang=${this.lang}`
+  _apiUrl(offset) {
+    return `${this.api_url}${this.type}?api_key=${this.api_key}&limit=${this.limit}&offset=${offset}&rating=${this.rating}&lang=${this.lang}`
   }
 
 }

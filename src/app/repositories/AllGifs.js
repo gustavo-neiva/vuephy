@@ -8,8 +8,9 @@ export default class AllGifs {
     this.gifsFactory = new GifsFactory();
   }
 
-  getBySearchQuery(query) {
-    const queryUrl = this.api.searchQueryUrl(query)
+  getBySearchQuery(query, offset) {
+    const searchParams = { query: query, offset: offset }
+    const queryUrl = this.api.searchQueryUrl(searchParams)
     return Axios.get(queryUrl)
     .then(({data}) => {
       const Gifs = this.gifsFactory.createFromObjects(data.data)
