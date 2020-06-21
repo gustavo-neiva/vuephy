@@ -1,5 +1,5 @@
 export default class Gif {
-  constructor(id = 'BlVnrxJgTGsUw') {
+  constructor(id = 'xUPGczofzl3QEh4glW') {
       this._id = id;
       this._base_url = 'https://i.giphy.com/media/'
       this._suffix = '/200w.gif'
