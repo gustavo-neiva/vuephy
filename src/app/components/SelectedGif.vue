@@ -1,24 +1,17 @@
-<style scoped>
-
-.gif {
-  width: 100%;
-  height: auto;
-  max-width: 70vh;
-  max-height: 70vh;
-}
-
-</style>
-
 <template>
-  <img class="gif" :src="gif.gifUrl()" alt="">
+  <div class="container">
+    <GifImage :source="gif.gifUrl()"/>
+  </div>
 </template>
 
 <script>
 
 import { mapState } from 'vuex'
+import GifImage from './GifImage.vue';
 
 export default {
   name: "SelectedGif",
+  components:  { GifImage },
   data() {
     return {
       gif: '',
