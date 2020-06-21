@@ -39,7 +39,7 @@
       <input
         v-model="query"
         @focus="showIcon(false)"
-        @blur="showIcon(true)"
+        @focusout="showIcon(true)"
         @input="debounceInput"
         type="text"
         class="search-bar"
