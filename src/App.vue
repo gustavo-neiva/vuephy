@@ -1,28 +1,32 @@
 
 <style>
 body {
-  margin:0;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background: black;
+  height: 100vh;
+  overflow-x:hidden;
+  overflow-y:hidden;
 }
 
 .selected-gif {
   display: flex;
-  justify-content: center; /* align horizontal */
+  justify-content: center;
   align-items: center;
   height: 90%;
 }
 
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width : 480px) {
   .wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 27% 73%;
   }
 }
 
