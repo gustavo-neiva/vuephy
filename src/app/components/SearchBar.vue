@@ -75,8 +75,8 @@ export default {
       this.icon = boolean;
     }
   },
-  mounted() {
-    this.getGifs('happy');
+  created() {
+    this.getGifs('gif');
   }
 }
 </script>
