@@ -41,7 +41,6 @@ export default {
       this.selectGif(gif);
     },
     onScroll({ target: { scrollTop, clientHeight, scrollHeight }}) {
-      console.log('scrolllandooo')
       if (scrollTop + clientHeight >= scrollHeight) {
         this.searchMore()
       }
