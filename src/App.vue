@@ -35,7 +35,7 @@ body {
 
 <template>
 <div id="app">
-  <Navbar/>
+  <Header/>
   <SearchBar/>
   <div class="wrapper" >
     <div>
@@ -58,10 +58,10 @@ body {
 import SelectedGif from './app/components/SelectedGif.vue';
 import GifList from './app/components/GifList.vue';
 import SearchBar from './app/components/SearchBar.vue';
-import Navbar from './app/components/Navbar.vue';
+import Header from './app/components/Header.vue';
 
 export default {
   name: 'app',
-  components: { SelectedGif, GifList, SearchBar, Navbar }
+  components: { SelectedGif, GifList, SearchBar, Header}
 }
 </script>
