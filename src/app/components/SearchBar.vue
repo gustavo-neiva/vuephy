@@ -6,11 +6,11 @@
   height: 100%;
   width: 100%;
   display: block;
-  font-size: 3.1rem;
+  font-size: 2rem;
   color: rgba(110, 110, 110, 0.4);
   background: black;
   margin-top: 0.1rem;
-  line-height: 6vh;
+  line-height: 5vh;
   outline: none;
   padding: 0.3rem 1rem;
   border: none;
@@ -25,7 +25,7 @@
 <template>
   <div>
     <div class="input-icon">
-      <i class="fa fa-search fa-3x"></i>
+      <i class="fa fa-search fa-2x"></i>
       <input
         v-model="query"
         @input="debounceInput"
