@@ -6,40 +6,28 @@
   height: 100%;
   width: 100%;
   display: block;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 3rem;
-  color: lightgrey;
+  font-size: 3.1rem;
+  color: rgba(110, 110, 110, 0.4);
   background: black;
   margin-top: 0.1rem;
   line-height: 6vh;
   outline: none;
-  padding: 0 7px;
+  padding: 0.3rem 1rem;
   border: none;
 }
 .fa-search  {
-  color: #dddddd;
-  left: 0;
-  margin: 0.3rem 0 0 0.2rem;
-  opacity: 0.5
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .15s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+  color: rgba(116, 116, 116, 0.4);
+  right: 0;
+  margin: 0.33rem 0.33rem 0 0;
 }
 </style>
 
 <template>
   <div>
     <div class="input-icon">
-      <transition name="fade">
-        <i v-show="icon" class="fa fa-search fa-3x"></i>
-      </transition>
+      <i class="fa fa-search fa-3x"></i>
       <input
         v-model="query"
-        @focus="showIcon(false)"
-        @blur="showIcon(true)"
         @input="debounceInput"
         type="text"
         class="search-bar"
@@ -52,6 +40,7 @@
 <script>
 import debounce from 'debounce';
 import { mapActions } from 'vuex';
+import { isMobile } from 'mobile-device-detect';
 
 export default {
   name: "SearchBar",
@@ -67,13 +56,7 @@ export default {
       if (this.query.length >= 3) {
         this.getGifs(this.query);
       }
-    }, 700),
-    showIcon(boolean) {
-      if (this.query.length > 0) {
-        return this.icon = false;
-      }
-      this.icon = boolean;
-    }
+    }, 700)
   },
   created() {
     this.getGifs('gif');
