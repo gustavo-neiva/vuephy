@@ -39,8 +39,8 @@ h1 {
   <div class="header">
     <h1 class="title"><strong>VUEPHY</strong></h1>
     <div class="description">
-      <div v-if="display" @click="hideWho">Who?</div>
-      <div  v-else @click="showWho" class="creator">
+      <div v-if="display" @click="hide">Who?</div>
+      <div  v-else @click="show" class="creator">
         Made with <span role="img" aria-label="corazon">❤️</span> by <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/gustavo__neiva">Gustavo Neiva</a>
       </div>
     </div>
@@ -57,10 +57,10 @@ export default {
     }
   },
   methods: {
-    hideWho() {
+    hide() {
       this.display = false
     },
-    showWho() {
+    show() {
       this.display = true
     },
   }
