@@ -24,7 +24,7 @@
   .header {
     height: 5vh;
     width: 100%;
-    color: #000080;
+    color: #fa7d09;
     margin-top: 0.1rem;
   }
 }
