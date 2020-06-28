@@ -1,6 +1,8 @@
 <style scoped>
 .input-icon i {
   position: absolute;
+  display: flex;
+  justify-content: flex-end;
 }
 .search-bar {
   height: 100%;
@@ -12,13 +14,12 @@
   margin-top: 0.1rem;
   line-height: 5vh;
   outline: none;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 2.8rem;
   border: none;
 }
-.fa-search  {
+.fa-search {
+  margin: 0.33rem;
   color: rgba(116, 116, 116, 0.4);
-  right: 0;
-  margin: 0.33rem 0.33rem 0 0;
 }
 </style>
 
