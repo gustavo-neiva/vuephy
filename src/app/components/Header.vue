@@ -17,10 +17,6 @@
   .creator {
     font-size: 0.65rem;
   }
-  .description {
-    font-size: 1rem;
-    margin: 0.5rem;
-  }
   .header {
     height: 5vh;
     width: 100%;
