@@ -20,7 +20,9 @@ const GifStore = {
       state.gifs = state.gifs.concat(gifs);
     },
     buildGifs(state, gifs) {
-      state.gifs = gifs;
+      if(gifs.length > 0) {
+        state.gifs = gifs;
+      }
     },
     setLoading(state, status) {
       state.loading = status;

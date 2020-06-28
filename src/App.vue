@@ -4,16 +4,16 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  overflow-x:hidden;
+  overflow-y:hidden;
 }
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: black;
+  background: rgb(18,18,18);
   height: 100%;
-  overflow-x:hidden;
-  overflow-y:hidden;
   font-family: 'Roboto Mono', monospace;
 }
 

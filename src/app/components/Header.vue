@@ -2,8 +2,8 @@
 .header{
   height: 3rem;
   width: 100%;
-  color: rgb(5, 5, 200);
-  background: black;
+  color: #fa7d09;
+  background: rgb(18,18,18);
   margin: 0.2rem;
   outline: none;
   border: none;
@@ -24,7 +24,7 @@
   .header {
     height: 5vh;
     width: 100%;
-    color: rgb(5, 5, 200);
+    color: #000080;
     margin-top: 0.1rem;
   }
 }

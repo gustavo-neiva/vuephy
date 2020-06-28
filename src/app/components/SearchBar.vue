@@ -9,8 +9,8 @@
   width: 100%;
   display: block;
   font-size: 2rem;
-  color: rgba(110, 110, 110, 0.4);
-  background: black;
+  color: #4a3f35;
+  background: rgb(18,18,18);
   margin-top: 0.1rem;
   line-height: 5vh;
   outline: none;
@@ -19,7 +19,7 @@
 }
 .fa-search {
   margin: 0.33rem;
-  color: rgba(116, 116, 116, 0.4);
+  color: #4a3f35;
 }
 </style>
 
