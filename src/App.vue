@@ -11,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background: black;
-  height: 100vh;
+  height: 100%;
   overflow-x:hidden;
   overflow-y:hidden;
   font-family: 'Roboto Mono', monospace;
@@ -36,10 +36,10 @@ body {
 <template>
 <div id="app">
   <Header/>
-  <SearchBar/>
   <div class="wrapper" >
     <div>
       <div>
+          <SearchBar/>
       </div>
       <div class="selected-gif">
         <SelectedGif/>

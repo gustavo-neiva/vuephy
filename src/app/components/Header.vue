@@ -1,26 +1,14 @@
 <style scoped>
 .header{
-  height: 5vh;
+  height: 3rem;
   width: 100%;
   color: rgb(5, 5, 200);
   background: black;
-  margin-top: 0.1rem;
+  margin: 0.2rem;
   outline: none;
   border: none;
   display: flex;
-  justify-content: space-between;
-  alight-items: center;
-}
-.fa-search  {
-  color: #dddddd;
-  left: 0;
-  margin: 0.3rem 0 0 0.2rem;
-  opacity: 0.5
-}
-.description {
-  font-size: 1.5rem;
-  margin: 0.4rem;
-  cursor:pointer;
+  justify-content: center;
 }
 .creator {
   font-size: 0.8rem;
@@ -29,21 +17,32 @@
   .creator {
     font-size: 0.65rem;
   }
+  .description {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+  .header {
+    height: 5vh;
+    width: 100%;
+    color: rgb(5, 5, 200);
+    margin-top: 0.1rem;
+  }
 }
 h1 {
-  margin: 0.33rem 1rem 1rem 0.66rem;
+  margin: 0;
+  cursor: pointer;
+}
+h2 {
+  margin-top: 0.5rem;
 }
 </style>
 
 <template>
   <div class="header">
-    <h1 class="title"><strong>VUEPHY</strong></h1>
-    <div class="description">
-      <div v-if="display" @click="hide">Who?</div>
-      <div  v-else @click="show" class="creator">
-        Made with <span role="img" aria-label="corazon">❤️</span> by <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/gustavo__neiva">Gustavo Neiva</a>
-      </div>
-    </div>
+    <h1 v-if="display" @click="hide" class="title"><strong>VUEPHY</strong></h1>
+    <h2  v-else @click="show" class="creator">
+      Made with <span role="img" aria-label="corazon">❤️</span> by <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/gustavo__neiva">Gustavo Neiva</a>
+    </h2>
   </div>
 </template>
 
