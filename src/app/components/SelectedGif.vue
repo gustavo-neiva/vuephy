@@ -1,7 +1,6 @@
 <style scoped>
 .mobile-container{
-  max-width:7rem;
-  max-height:7rem;
+  max-width:20vh;
   margin: 0.1rem;
 }
 .container {
